@@ -1,30 +1,28 @@
 import './App.css';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from './firebase.init';
-import { getAuth, signInWithPopup ,GoogleAuthProvider } from "firebase/auth";
-// import {  } from "firebase/auth";
 
 const auth = getAuth(app);
 
 function App() {
   const provider = new GoogleAuthProvider();
-
   const handleGoogleSignIn = () =>{
-     signInWithPopup(auth,provider)
-    .then(result =>{
-      const user = result.user;
-      console.log(user)
-    }).catch(error =>{
-      console.log(error,'error')
-    })
-
+       signInWithPopup(auth,provider)
+       .then(result=>{
+          const user = result.user
+          console.log(user);
+       })
+       .catch(error=>{
+        console.log(error)
+       })
   }
+  
   return (
     <div className="App"style={{'margin': '10px'}}>
-      <button onClick={handleGoogleSignIn}>Google Sign In</button>
+    <button onClick={handleGoogleSignIn}>Google Sign In</button>
     </div>
   );
 }
-
 export default App;
 
 
