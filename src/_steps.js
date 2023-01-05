@@ -10,6 +10,9 @@
     6. import app firebase init.js into your app.js
     7. import getAuth from firebase/auTh and create auth = getAuth(app)
     8. turn on google authentication 
+    9. create google provider
+    10. use signUpWithPopUp and pass 'auth' and 'provider' as a parameter; 
+    11. handle .then (if successful) .catch(if got error)  
 */
 
 
